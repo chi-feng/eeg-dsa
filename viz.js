@@ -182,7 +182,7 @@ class AudioVisualizer {
 
   createMedianLine() {
     const { xSize, ySize, xSegments } = this.dimensions;
-    const positions = new Float32Array((xSegments + 1) * 3);
+    const positions = new Float32Array((xSegments + 2) * 3);
 
     // Initialize points array with valid values
     for (let i = 0; i <= xSegments; i++) {
@@ -655,6 +655,12 @@ class AudioVisualizer {
           positions[i * 3 + 1] = 0.1;
           positions[i * 3 + 2] = this.medianHistory[i] || 0; // Use 0 as fallback
         }
+        positions[xSegments * 3 + 0] = -xSize / 2;
+        positions[xSegments * 3 + 1] = 11;
+        positions[xSegments * 3 + 2] = this.medianHistory[xSegments] || 0; // Use 0 as fallback
+        positions[(xSegments - 1) * 3 + 0] = -xSize / 2;
+        positions[(xSegments - 1) * 3 + 1] = 0;
+        positions[(xSegments - 1) * 3 + 2] = this.medianHistory[xSegments] || 0; // Use 0 as fallback
 
         // Update geometry with new positions
         this.medianGeometry.setPositions(positions);

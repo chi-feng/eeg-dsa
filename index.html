@@ -81,7 +81,7 @@
                 float fadeStart = 34.5;  // Adjust these values to control fade distance
                 float fadeEnd = 35.0;    // Should match your xSize
                 float fadeOpacity = smoothstep(fadeEnd, fadeStart, vDistance);
-                gl_FragColor = vec4(vColor, opacity * fadeOpacity);
+                gl_FragColor = vec4(vColor, opacity * 0.95);
             }
         </script>
         <div id="spectrogram">Click anywhere to start</div>
@@ -90,16 +90,16 @@
                 <button id="play-pause">(P) Pause</button>
             </div>
             <div class="control">
-                <button id="toggle-camera">(C) Cycle Camera</button>
+                <button id="toggle-camera">(C) Camera</button>
             </div>
             <div class="control">
-                <button id="toggle-fft-traces">(T) FFT Traces</button>
+                <button id="toggle-fft-traces">(T) Traces</button>
             </div>
             <div class="control">
-                <button id="toggle-fft-surface">(S) DSA Spectrogram</button>
+                <button id="toggle-fft-surface">(S) Spectrogram</button>
             </div>
             <div class="control">
-                <button id="toggle-fft-surface">(3) 3D Spectrogram</button>
+                <button id="toggle-fft-surface">(3) Displacement</button>
             </div>
             <div class="control">
                 <button id="toggle-fft-median">(9) 95%</button>
